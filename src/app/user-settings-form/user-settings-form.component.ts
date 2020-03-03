@@ -9,11 +9,11 @@ import { UserSettings } from '../data/user-settings';
 export class UserSettingsFormComponent implements OnInit {
 
   originalUserSettings: UserSettings = {
-    name: 'Milton',
-    emailOffers: true,
-    interfaceStyle: 'dark',
-    subscriptionType: 'Annual',
-    notes: 'here are some notes...'
+    name: null,
+    emailOffers: null,
+    interfaceStyle: null,
+    subscriptionType: null,
+    notes: null
   };
 
   // Use the spread operator to make a copy of this flat object before displaying it to the user to protect the original data
