@@ -16,6 +16,10 @@ export class DataService {
 
     // return of(userSettings);
   }
+  getSubscriptionTypes(): Observable<string[]> {
+    return of(['Monthly', 'Annual', 'Lifetime']);
+  }
+
 
   /*
   putsReq.com code entered into Response Builder:
