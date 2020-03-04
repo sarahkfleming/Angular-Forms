@@ -5,12 +5,12 @@
 
         <div class="form-group">
             <label for="name">Name</label>
-            <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name" required #nameField="ngModel"
-            [class.field-error]="form.submitted && nameField.invalid"
-            (blur)="onBlur(nameField)" />
-                <!-- pattern="B.*"
+            <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name" required
+                #nameField="ngModel" [class.field-error]="form.submitted && nameField.invalid"
+                (blur)="onBlur(nameField)" />
+            <!-- pattern="B.*"
                 minlength="3" maxlength="10" -->
-                
+
             <div [hidden]="!form.submitted || nameField.valid" class="alert alert-danger">
                 Enter a name</div>
         </div>
@@ -63,6 +63,10 @@
         <div class="form-group">
             <label for="notes">Notes</label>
             <textarea id="notes" name="notes" class="form-control" rows="3" [(ngModel)]="userSettings.notes"></textarea>
+        </div>
+
+        <div [hidden]="!postError" class="alert alert-danger">
+            {{ postErrorMessage }}
         </div>
 
         <button class="btn btn-primary">Send</button>
