@@ -19,6 +19,8 @@ export class UserSettingsFormComponent implements OnInit {
     notes: null
   };
 
+  singleModel = 'On';
+
   // Use the spread operator to make a copy of this flat object before displaying it to the user to protect the original data
   userSettings: UserSettings = { ...this.originalUserSettings };
   postError = false;
