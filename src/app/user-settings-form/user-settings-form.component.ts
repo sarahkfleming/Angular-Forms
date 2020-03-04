@@ -19,6 +19,9 @@ export class UserSettingsFormComponent implements OnInit {
     notes: null
   };
 
+  singleModel = 'On';
+
+  startDate: Date;
   // Use the spread operator to make a copy of this flat object before displaying it to the user to protect the original data
   userSettings: UserSettings = { ...this.originalUserSettings };
   postError = false;
@@ -29,6 +32,8 @@ export class UserSettingsFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscriptionTypes = this.dataService.getSubscriptionTypes();
+
+    this.startDate = new Date();
   }
 
   onHttpError(errorResponse: any) {
@@ -38,15 +43,15 @@ export class UserSettingsFormComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log('in onSubmit: ', form.valid);
+    console.log('in onSubmit: ', form.value);
 
-    if (form.valid) {
-      this.dataService.postUserSettingsForm(this.userSettings).subscribe(result => console.log('success: ', result),
-        error => this.onHttpError(error));
-    } else {
-      this.postError = true;
-      this.postErrorMessage = 'Please fix the above errors';
-    }
+    // if (form.valid) {
+    //   this.dataService.postUserSettingsForm(this.userSettings).subscribe(result => console.log('success: ', result),
+    //     error => this.onHttpError(error));
+    // } else {
+    //   this.postError = true;
+    //   this.postErrorMessage = 'Please fix the above errors';
+    // }
   }
 
   onBlur(field: NgModel) {
